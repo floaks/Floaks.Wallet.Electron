@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Floaks.Wallet+
+Comment=Floaks.Wallet Native Cross-Platform Desktop Application via Electron.
+Exec=floakswallet-desktop
+Terminal=false
+Type=Application
+Icon=${SNAP}/meta/gui/icon.png
+Categories=GNOME;GTK;Network;InstantMessaging
+StartupWMClass=Floaks.Wallet+

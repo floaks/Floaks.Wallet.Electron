@@ -1,0 +1,37 @@
+language: node_js
+node_js: 7
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+matrix:
+  include:
+  - os: linux
+    dist: trusty
+    sudo: false
+    addons:
+      apt:
+        packages:
+          - rpm
+          - g++-multilib
+          - libxss-dev:i386
+  - os: osx
+    osx_image: xcode8.3
+
+install:
+  - yarn
+script:
+  - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then export CSC_IDENTITY_AUTO_DISCOVERY=false; fi
+  - yarn release -- --x64 --ia32
+
+branches:
+  only:
+    - master
+    - develop
+    - hotfix
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
